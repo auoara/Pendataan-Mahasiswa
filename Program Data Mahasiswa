@@ -8,31 +8,32 @@ struct Mahasiswa {
     string jurusan;
 };
 
-void inputData(Mahasiswa& mhs) {
-    cout << "Masukkan Nama: ";
-    cin.ignore();  // Menghindari masalah dengan cin sebelumnya
-    getline(cin, mhs.nama);
-    cout << "Masukkan NIM: ";
-    cin >> mhs.nim;
-    cout << "Masukkan Jurusan: ";
-    cin >> mhs.jurusan;
-}
-
-void tampilkanData(const Mahasiswa& mhs) {
-    cout << "\nData Mahasiswa: " << endl;
-    cout << "Nama: " << mhs.nama << endl;
-    cout << "NIM: " << mhs.nim << endl;
-    cout << "Jurusan: " << mhs.jurusan << endl;
-}
-
 int main() {
-    Mahasiswa mhs1;  // Membuat objek mahasiswa
+    int jumlahMahasiswa;
+    cout << "Masukkan jumlah mahasiswa: ";
+    cin >> jumlahMahasiswa;
+
+    Mahasiswa mahasiswa[jumlahMahasiswa];
 
     // Input data mahasiswa
-    inputData(mhs1);
+    for (int i = 0; i < jumlahMahasiswa; i++) {
+        cout << "\nMasukkan data mahasiswa ke-" << (i + 1) << endl;
+        cout << "Nama: ";
+        cin >> mahasiswa[i].nama;
+        cout << "NIM: ";
+        cin >> mahasiswa[i].nim;
+        cout << "Jurusan: ";
+        cin >> mahasiswa[i].jurusan;
+    }
 
     // Menampilkan data mahasiswa
-    tampilkanData(mhs1);
+    cout << "\nData Mahasiswa yang Dimasukkan:" << endl;
+    for (int i = 0; i < jumlahMahasiswa; i++) {
+        cout << "\nMahasiswa ke-" << (i + 1) << endl;
+        cout << "Nama: " << mahasiswa[i].nama << endl;
+        cout << "NIM: " << mahasiswa[i].nim << endl;
+        cout << "Jurusan: " << mahasiswa[i].jurusan << endl;
+    }
 
     return 0;
 }
